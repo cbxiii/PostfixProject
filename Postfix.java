@@ -23,8 +23,8 @@ public class Postfix {
 				}
 				operators.pop(); // pop '('
 			} else {
-				while (!operators.isEmpty() && precedence(operators.peek()) >= precedence(c)
-						&& associativity(c) == 'L') {
+				while (!operators.isEmpty() && (precedence(operators.peek()) >= precedence(c))
+						&& (associativity(c) == 'L')) {
 					result += operators.pop();
 				}
 				operators.push(c);
@@ -72,5 +72,7 @@ public class Postfix {
 	public static void main(String[] args) {
 		toPostfix("2+3*4");
 		toPostfix("a+b*(c^d-e)^(f+g*h)-i");
+        toPostfix("4-3-2");
+        toPostfix("(4/2+3)*1");
 	}
 }
